@@ -31,15 +31,17 @@ public class ITreturns extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name=request.getParameter("name");
-        String gender=request.getParameter("gender");
-        String salary=request.getParameter("salary");
-        String tax=request.getParameter("tax");
+                String gender=request.getParameter("gender");
+                int salary=Integer.parseInt(request.getParameter("salary"));
+                int deduct=Integer.parseInt(request.getParameter("deduct"));
+		int tax=(int) ((salary-deduct)*0.2);
+		
         PrintWriter out=response.getWriter();
         File file = new File("1.txt");
         file.createNewFile();
         FileOutputStream fout = new FileOutputStream(file);
-        out.println(""+name+gender+salary+tax);
-        fout.write(("hello"+name+gender+salary+tax).getBytes());
+        out.println(" "+name+" "+gender+" "+salary+" "deduct+" "+tax);
+        fout.write(("hello"+name+gender+salary+deduct+tax).getBytes());
         fout.close();
         
 	}
