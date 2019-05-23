@@ -14,7 +14,7 @@ name:<input type="text" name="name"/>
 <option>fe</option>
 </select>
 sal:<input type="text" name="salary"/>
-tax:<input type="text" name="tax"/>
+deduct:<input type="text" name="deduct"/>
 <input type="submit"/>
 </form>
 </body>
